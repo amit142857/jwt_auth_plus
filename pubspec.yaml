@@ -2,7 +2,7 @@ name: jwt_auth_plus
 description: >
   A high-performance JWT decoder and authentication manager for Flutter. 
   Easily parse payloads, check expiration, and manage auth headers.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/amit142857/jwt_auth_plus
 homepage: https://github.com/amit142857/jwt_auth_plus
 
