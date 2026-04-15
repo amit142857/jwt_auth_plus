@@ -17,52 +17,6 @@ A high-performance, lightweight JWT management library for Flutter. Simplify you
 
 ---
 
-📖 Usage
-1. Decoding a Token
-Turn a raw string into a structured model instantly. This method handles Base64 padding issues automatically.
-import 'package:jwt_auth_plus/jwt_auth_plus.dart';
-
-final String rawToken = "your.jwt.token.here";
-
-try {
-  final jwt = JWTAuthPlus.decode(rawToken);
-
-  print('User ID: ${jwt.userId}');
-  print('Expiration: ${jwt.exp}');
-  print('Is Expired: ${jwt.isExpired}');
-} catch (e) {
-  print('Invalid Token: $e');
-}
-2. Guarding Routes
-Use a simple helper to validate tokens before navigation.
-if (JWTAuthPlus.isValid(storedToken)) {
-  navigator.pushNamed('/dashboard');
-} else {
-  navigator.pushNamed('/login');
-}
-3. API Headers
-Generate Authorization headers بسهولة.
-final headers = JWTAuthPlus.getHeader(myToken);
-
-// {'Authorization': 'Bearer <your_token>'}
-
-final customHeader = JWTAuthPlus.getHeader(
-  myToken,
-  prefix: 'Token',
-);
-🧬 JWTModel Anatomy
-Property	Type	Description
-userId	String?	Automatically extracts the sub claim
-exp	int?	Raw expiration timestamp
-isExpired	bool	True if current time is past exp
-payload	Map	Full raw payload for custom claims
-🤝 The "Plus" Ecosystem
-Enhance your Flutter development with compatible libraries:
-💎 glass_morphism_plus – Premium glassmorphic UI
-📳 vibration_service – Professional haptic feedback
-📝 License
-This project is licensed under the MIT License.
-
 ## 🚀 Getting Started
 
 Add the dependency to your `pubspec.yaml`:
@@ -70,3 +24,23 @@ Add the dependency to your `pubspec.yaml`:
 ```yaml
 dependencies:
   jwt_auth_plus: ^1.0.0
+
+## 📖 Usage
+
+### 1. Decoding a Token
+Turn a raw string into a structured model instantly. This method handles the Base64 "padding" issues (the `==` at the end of strings) automatically.
+
+```dart
+import 'package:jwt_auth_plus/jwt_auth_plus.dart';
+
+final String rawToken = "your.jwt.token.here";
+
+try {
+  final jwt = JWTAuthPlus.decode(rawToken);
+  
+  print('User ID: ${jwt.userId}');
+  print('Expiration: ${jwt.exp}');
+  print('Is Expired: ${jwt.isExpired}');
+} catch (e) {
+  print('Invalid Token: $e');
+}
