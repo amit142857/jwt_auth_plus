@@ -1,8 +1,8 @@
 /// A professional JWT authentication and management library for Flutter.
+// ignore: unnecessary_library_name
 library jwt_auth_plus;
 
 import 'dart:convert';
-import 'package:flutter/material.dart';
 
 /// A model representing the decoded JWT payload.
 class JWTModel {
